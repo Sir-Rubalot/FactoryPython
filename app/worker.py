@@ -1,6 +1,7 @@
 import datetime
 import json
 from pydantic import BaseModel
+from errorcodes import WorkerNotFoundError
 
 class Worker():
     def __init__(self, name):
@@ -25,7 +26,7 @@ class Worker():
                 #work_time = worker.get_work_time()
                 worker_list.remove(worker)
                 return
-        print(f"{worker_name} hittades inte. Är personen instämplad?")
+        raise WorkerNotFoundError(f"{worker_name} hittades inte. Är personen instämplad?")
     
     @staticmethod
     def worker_list( name, worker_list):
@@ -35,7 +36,7 @@ class Worker():
     
     @staticmethod
     def list_workers(worker_list):
-        print("Instämplade kollegor")
+        print("Instämplade kollegor:")
         for worker in worker_list:
             print(worker)
     

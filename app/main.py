@@ -2,6 +2,7 @@ import datetime
 import sys
 from worker import Worker
 from database import Database
+from errorcodes import WorkerNotFoundError
 
 worker_list = []
 
@@ -28,8 +29,9 @@ while True:
             print(f"{worker_name} har nu stämplat ut.")
         except KeyError:
             print("Denna koden skrivs inte ut")
+        except WorkerNotFoundError:
+                print(f"{worker_name} hittades inte. Är personen instämplad?")
         finally:
-            print("Instämplade kollegor:")
             Worker.list_workers(worker_list)
     elif user_choice == "4":
         Worker.list_workers(worker_list)
