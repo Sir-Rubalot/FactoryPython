@@ -41,10 +41,10 @@ class Worker():
             print(worker)
     
     def check_in(self):
-        self.time_in = datetime.datetime.now()
+        self.time_in = datetime.datetime()
 
     def check_out(self):
-        self.time_out = datetime.datetime.now()
+        self.time_out = datetime.datetime()
 
 
     
