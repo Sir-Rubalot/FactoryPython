@@ -1,6 +1,4 @@
 import datetime
-import json
-from pydantic import BaseModel
 from errorcodes import WorkerNotFoundError
 
 class Worker():
