@@ -1,4 +1,3 @@
-import datetime
 from errorcodes import WorkerNotFoundError
 
 class Worker():
@@ -20,8 +19,6 @@ class Worker():
     def remove_worker( worker_name, worker_list):
         for worker in worker_list:
             if worker.name == worker_name:
-                #worker.check_out(datetime.time())
-                #work_time = worker.get_work_time()
                 worker_list.remove(worker)
                 return
         raise WorkerNotFoundError(f"{worker_name} hittades inte. Är personen instämplad?")
@@ -38,11 +35,9 @@ class Worker():
         for worker in worker_list:
             print(worker)
     
-    def check_in(self):
-        self.time_in = datetime.datetime()
+    def check_in(self, time_in):
+        self.time_in = time_in
 
-    def check_out(self):
-        self.time_out = datetime.datetime()
+    def check_out(self, time_out):
+        self.time_out = time_out
 
-
-    
